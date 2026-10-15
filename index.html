@@ -104,6 +104,21 @@
             box-shadow: 0 1px 3px rgba(0,0,0,0.03);
         }
 
+        .profile-intro {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 170px;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .profile-photo {
+            display: block;
+            width: 170px;
+            height: auto;
+            border-radius: 8px;
+        }
+
         .profile-name {
             font-size: 2.1rem;
             font-weight: 800;
@@ -272,28 +287,6 @@
             border-bottom: none;
         }
 
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1rem;
-            font-size: 0.95rem;
-        }
-
-        .skill-box {
-            background: var(--bg-main);
-            padding: 0.9rem 1.1rem;
-            border-radius: 6px;
-            border: 1px solid var(--border-color);
-        }
-
-        .skill-label {
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 0.25rem;
-            display: block;
-        }
-
         footer {
             text-align: center;
             font-size: 0.85rem;
@@ -304,6 +297,13 @@
         @media (max-width: 640px) {
             header, section {
                 padding: 1.4rem;
+            }
+            .profile-intro {
+                grid-template-columns: minmax(0, 1fr);
+            }
+            .profile-photo {
+                grid-row: 1;
+                justify-self: center;
             }
             .item-header, .honor-item {
                 flex-direction: column;
@@ -320,10 +320,7 @@
         <div class="nav-container">
             <a href="#" class="nav-brand">Zhenxuan Xie</a>
             <div class="nav-links">
-                <a href="#education">Education</a>
                 <a href="#publications">Publications</a>
-                <a href="#research">Research</a>
-                <a href="#contests">Contests</a>
                 <a href="#honors">Honors</a>
                 <a href="#service">Service</a>
             </div>
@@ -333,59 +330,26 @@
     <div class="container">
         <!-- Profile Header -->
         <header>
-            <h1 class="profile-name">Zhenxuan Xie (谢镇轩)</h1>
-            <div class="profile-role">
-                Ph.D. Student in Computer Science and Engineering<br>
-                The Chinese University of Hong Kong (CUHK)
-            </div>
-            <div class="contact-bar">
-                <span>📧 <a href="mailto:zxxie24@cse.cuhk.edu.hk">zxxie24@cse.cuhk.edu.hk</a></span>
-                <span>📞 +852 5694 9586</span>
-                <span>🔗 <a href="https://github.com/" target="_blank">GitHub</a></span>
-                <span>🎓 <a href="https://scholar.google.com/" target="_blank">Google Scholar</a></span>
+            <div class="profile-intro">
+                <div class="profile-details">
+                    <h1 class="profile-name">Zhenxuan Xie</h1>
+                    <div class="profile-role">
+                        Ph.D. Candidate in Computer Science and Engineering<br>
+                        <a href="https://www.cuhk.edu.hk/english/" target="_blank" rel="noopener noreferrer">The Chinese University of Hong Kong (CUHK)</a>
+                    </div>
+                    <div class="contact-bar">
+                        <span>📧 zxxie24[at]cse.cuhk.edu.hk</span>
+                        <span>💼 <a href="https://www.linkedin.com/in/%E6%8C%AF%E8%BD%A9-%E8%B0%A2-ab6074364/" target="_blank" rel="noopener noreferrer">LinkedIn</a></span>
+                        <span>🔗 <a href="https://github.com/cardal1" target="_blank" rel="noopener noreferrer">GitHub</a></span>
+                        <span>🎓 <a href="https://scholar.google.com/citations?user=o1jTSCkAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a></span>
+                    </div>
+                </div>
+                <img class="profile-photo" src="pic.jpg" alt="Portrait of Zhenxuan Xie" width="1080" height="1440">
             </div>
             <p class="bio-text">
-                I am currently a Ph.D. student in the Department of Computer Science and Engineering at <strong>The Chinese University of Hong Kong (CUHK)</strong>, advised by <a href="https://www.cse.cuhk.edu.hk/~fyyoung/" target="_blank">Prof. Evangeline F. Y. Young</a>. Previously, I received my M.S. degree in Computer Science and Technology from <strong>Huazhong University of Science and Technology (HUST)</strong> in 2024, and my B.Eng. degree in Software Engineering from <strong>South China University of Technology (SCUT)</strong> in 2021. My research interests lie in <strong>Electronic Design Automation (EDA)</strong>, logic synthesis, technology mapping, gate sizing, and GPU-accelerated / differentiable optimization algorithms.
+                I am currently a Ph.D. candidate in the Department of Computer Science and Engineering at <a href="https://www.cuhk.edu.hk/english/" target="_blank" rel="noopener noreferrer">The Chinese University of Hong Kong (CUHK)</a>, advised by <a href="https://www.cse.cuhk.edu.hk/~fyyoung/" target="_blank">Prof. Evangeline F. Y. Young</a>. Previously, I received my M.S. degree in Computer Science and Technology from <a href="https://english.hust.edu.cn/" target="_blank" rel="noopener noreferrer">Huazhong University of Science and Technology (HUST)</a> in 2024, and my B.Eng. degree in Software Engineering from <a href="https://www.scut.edu.cn/en/" target="_blank" rel="noopener noreferrer">South China University of Technology (SCUT)</a> in 2021. My research interests lie in Electronic Design Automation (EDA), logic synthesis, technology mapping, and GPU-accelerated / differentiable optimization algorithms.
             </p>
         </header>
-
-        <!-- Education -->
-        <section id="education">
-            <h2>Education Background</h2>
-            
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">The Chinese University of Hong Kong (CUHK)</span>
-                    <span class="item-date">2024.08 – Present</span>
-                </div>
-                <div class="item-subtitle">Ph.D. in Computer Science and Engineering</div>
-                <ul class="item-details">
-                    <li>Advisor: Prof. Evangeline F. Y. Young</li>
-                </ul>
-            </div>
-
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">Huazhong University of Science and Technology (HUST)</span>
-                    <span class="item-date">2021.09 – 2024.06</span>
-                </div>
-                <div class="item-subtitle">Master of Computer Science and Technology</div>
-                <ul class="item-details">
-                    <li>GPA: 90.13 / 100 (Top 5%)</li>
-                </ul>
-            </div>
-
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">South China University of Technology (SCUT)</span>
-                    <span class="item-date">2017.09 – 2021.06</span>
-                </div>
-                <div class="item-subtitle">Bachelor of Software Engineering</div>
-                <ul class="item-details">
-                    <li>GPA: 87.03 / 100 (Top 10%)</li>
-                </ul>
-            </div>
-        </section>
 
         <!-- Publications -->
         <section id="publications">
@@ -397,6 +361,7 @@
                     <span class="pub-title">“DiaMap: A Differentiable LUT Mapper for Area Optimization,”</span> 
                     in <em>IEEE/ACM International Conference on Computer-Aided Design (ICCAD)</em>, 2026.
                     <span class="venue-badge">ICCAD 2026</span>
+                    <a href="papers/ICCAD2026_Differential_LUT_mapping.pdf" target="_blank" rel="noopener noreferrer" aria-label="Read DiaMap PDF">[PDF]</a>
                 </li>
                 <li class="pub-item">
                     <span class="pub-index">[C2]</span>
@@ -404,6 +369,7 @@
                     <span class="pub-title">“UniMap: Unified Sizing and Remapping for ASIC Technology Mapping on GPU,”</span> 
                     in <em>IEEE/ACM International Conference on Computer-Aided Design (ICCAD)</em>, 2026.
                     <span class="venue-badge">ICCAD 2026</span>
+                    <a href="papers/iccad26_unimap.pdf" target="_blank" rel="noopener noreferrer" aria-label="Read UniMap PDF">[PDF]</a>
                 </li>
                 <li class="pub-item">
                     <span class="pub-index">[C1]</span>
@@ -412,6 +378,7 @@
                     in <em>IEEE/ACM International Conference on Computer-Aided Design (ICCAD)</em>, 2025.
                     <span class="venue-badge">ICCAD 2025</span>
                     <span class="award-badge">🏆 Best Paper Nominee</span>
+                    <a href="papers/iccad25_exactmap.pdf" target="_blank" rel="noopener noreferrer" aria-label="Read ExactMap PDF">[PDF]</a>
                 </li>
                 <li class="pub-item">
                     <span class="pub-index">[C0]</span>
@@ -419,74 +386,9 @@
                     <span class="pub-title">“A Swap Relaxation-Based Local Search for the Latin Square Completion Problem,”</span> 
                     in <em>International Joint Conference on Artificial Intelligence (IJCAI)</em>, 2024.
                     <span class="venue-badge">IJCAI 2024</span>
+                    <a href="papers/latin%20square.pdf" target="_blank" rel="noopener noreferrer" aria-label="Read Latin Square Completion PDF">[PDF]</a>
                 </li>
             </ul>
-        </section>
-
-        <!-- Research Experiences -->
-        <section id="research">
-            <h2>Research Experiences</h2>
-
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">Differentiable Area-Oriented LUT Mapper</span>
-                    <span class="item-date">2026.01 – 2026.04</span>
-                </div>
-                <ul class="item-details">
-                    <li>Designed a differentiable LUT mapper for area optimization by reformulating discrete cut selection as a continuous optimization problem and designing an effective loss function.</li>
-                    <li>Achieved reductions of <strong>14% in LUT count</strong> and <strong>19% in logic depth</strong> compared with ABC's <code>if -a</code>, with a <strong>2&times; speedup</strong>.</li>
-                </ul>
-            </div>
-
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">GPU-Accelerated ASIC Gate Sizing and Remapping</span>
-                    <span class="item-date">2025.04 – 2025.10</span>
-                </div>
-                <ul class="item-details">
-                    <li>Designed a GPU-accelerated evaluation framework that jointly supports gate sizing and remapping for mapped circuits using deterministic incremental STA.</li>
-                    <li>Extended the framework to support buffer insertion.</li>
-                    <li>Achieved average reductions of <strong>8% in delay</strong> and <strong>4% in area</strong> compared with ABC's gate-sizing flow, with a <strong>60&times; speedup</strong>.</li>
-                </ul>
-            </div>
-
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">GPU-Accelerated ASIC Technology Mapping</span>
-                    <span class="item-date">2024.09 – 2025.04</span>
-                </div>
-                <ul class="item-details">
-                    <li>Designed a GPU-accelerated, timing-driven ASIC mapper that considers load information in successive mapping iterations.</li>
-                    <li>Achieved an average <strong>delay reduction of 36%</strong> with comparable area compared with <code>&amp;nf</code> in ABC, while delivering nearly <strong>100&times; speedup</strong>.</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Contest Awards -->
-        <section id="contests">
-            <h2>Contest Awards</h2>
-
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">2024 &amp; 2025 ICCAD Contest Problem C: Gate Sizing</span>
-                    <span class="item-date">2024.05 – 2025.09</span>
-                </div>
-                <ul class="item-details">
-                    <li>Designed an efficient local-region evaluation framework for timing and area-driven gate sizing, supported by incremental static timing analysis (STA).</li>
-                    <li>Won <strong>First Place in the 2025 ICCAD Contest</strong> and <strong>Second Place in the 2024 ICCAD Contest</strong>.</li>
-                </ul>
-            </div>
-
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">2021 ICCAD Contest Problem B: Routing with Cell Movement Advanced</span>
-                    <span class="item-date">2021.03 – 2021.09</span>
-                </div>
-                <ul class="item-details">
-                    <li>Designed three global routing algorithms based on 2D routing, shortest-path search, and grid-weighted routing.</li>
-                    <li>Ranked first on all benchmark cases and won <strong>First Place</strong> in the competition.</li>
-                </ul>
-            </div>
         </section>
 
         <!-- Honors and Awards -->
@@ -494,64 +396,33 @@
             <h2>Honors and Awards</h2>
             <ul class="honor-list">
                 <li class="honor-item">
-                    <span><strong>Talent Development Scholarship</strong>, CUHK</span>
-                    <span class="item-date">2026.04</span>
+                    <span><strong>First Place in <a href="https://www.iccad-contest.org/2025/Winners.html" target="_blank" rel="noopener noreferrer">ICCAD 2025 Contest (Problem C)</a></strong></span>
+                    <span class="item-date">2025</span>
                 </li>
                 <li class="honor-item">
-                    <span><strong>First Place in ICCAD Contest</strong>, CUHK</span>
-                    <span class="item-date">2025.11</span>
+                    <span><strong>Best Paper Nominee</strong>, ICCAD</span>
+                    <span class="item-date">2025</span>
                 </li>
                 <li class="honor-item">
-                    <span><strong>Best Paper Nominee</strong>, IEEE/ACM ICCAD</span>
-                    <span class="item-date">2025.11</span>
+                    <span><strong>Second Place in <a href="https://www.iccad-contest.org/2024/Winners.html" target="_blank" rel="noopener noreferrer">ICCAD 2024 Contest (Problem C)</a></strong></span>
+                    <span class="item-date">2024</span>
                 </li>
                 <li class="honor-item">
-                    <span><strong>Second Place in ICCAD Contest</strong>, CUHK</span>
-                    <span class="item-date">2024.11</span>
-                </li>
-                <li class="honor-item">
-                    <span><strong>Full Postgraduate Studentship</strong>, CUHK</span>
-                    <span class="item-date">2024.08 – Present</span>
-                </li>
-                <li class="honor-item">
-                    <span><strong>Outstanding Graduate Students</strong>, HUST</span>
-                    <span class="item-date">2022.09</span>
-                </li>
-                <li class="honor-item">
-                    <span><strong>Second Prize in EDA Elite Challenge</strong>, HUST</span>
-                    <span class="item-date">2022.01</span>
-                </li>
-                <li class="honor-item">
-                    <span><strong>First Place in ICCAD Contest</strong>, HUST</span>
-                    <span class="item-date">2021.11</span>
-                </li>
-                <li class="honor-item">
-                    <span><strong>National Encouragement Scholarship</strong>, SCUT</span>
-                    <span class="item-date">2018 – 2020</span>
+                    <span><strong>First Place in <a href="https://www.iccad-contest.org/2021/Winners.html" target="_blank" rel="noopener noreferrer">ICCAD 2021 Contest (Problem B)</a></strong></span>
+                    <span class="item-date">2021</span>
                 </li>
             </ul>
         </section>
 
-        <!-- Academic Service & Skills -->
+        <!-- Academic Service -->
         <section id="service">
-            <h2>Academic Service &amp; Skills</h2>
-            <div class="item" style="margin-bottom: 1.5rem;">
+            <h2>Academic Service</h2>
+            <div class="item">
                 <div class="item-header">
                     <span class="item-title">Local Arrangement Chair</span>
                     <span class="item-date">2026</span>
                 </div>
                 <div class="item-subtitle">International Workshop on Logic &amp; Synthesis (IWLS)</div>
-            </div>
-
-            <div class="skills-grid">
-                <div class="skill-box">
-                    <span class="skill-label">Programming Languages</span>
-                    CUDA, C/C++, Python, Java
-                </div>
-                <div class="skill-box">
-                    <span class="skill-label">Languages</span>
-                    English (Fluent), Mandarin (Native), Cantonese (Native)
-                </div>
             </div>
         </section>
 
