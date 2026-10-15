@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhenxuan Xie | Academic Homepage</title>
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #2563eb;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --bg-main: #f9fafb;
+            --bg-card: #ffffff;
+            --border-color: #e5e7eb;
+            --badge-bg: #dbeafe;
+            --badge-text: #1e40af;
+            --award-bg: #fef3c7;
+            --award-text: #b45309;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.65;
+            color: var(--text-main);
+            background-color: var(--bg-main);
+        }
+
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        /* Top Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 0.85rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-brand {
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.25rem;
+            font-size: 0.92rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 920px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Profile Header */
+        header {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 2.2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+        }
+
+        .profile-name {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 0.35rem;
+        }
+
+        .profile-role {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .contact-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .bio-text {
+            font-size: 0.98rem;
+            color: var(--text-main);
+        }
+
+        /* Sections */
+        section {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.8rem 2.2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+        }
+
+        h2 {
+            font-size: 1.35rem;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.25rem;
+            letter-spacing: 0.02em;
+        }
+
+        /* Timeline / Items */
+        .item {
+            margin-bottom: 1.35rem;
+        }
+
+        .item:last-child {
+            margin-bottom: 0;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 0.2rem;
+        }
+
+        .item-title {
+            font-weight: 700;
+            font-size: 1.03rem;
+            color: var(--text-main);
+        }
+
+        .item-date {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .item-subtitle {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 0.35rem;
+        }
+
+        .item-details {
+            padding-left: 1.2rem;
+            font-size: 0.94rem;
+            color: var(--text-main);
+        }
+
+        .item-details li {
+            margin-bottom: 0.25rem;
+        }
+
+        /* Publications */
+        .pub-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .pub-item {
+            margin-bottom: 1.15rem;
+            padding-left: 2.2rem;
+            position: relative;
+            font-size: 0.96rem;
+        }
+
+        .pub-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .pub-index {
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .pub-title {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .author-me {
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        .venue-badge {
+            display: inline-block;
+            background: var(--badge-bg);
+            color: var(--badge-text);
+            font-weight: 600;
+            font-size: 0.8rem;
+            padding: 0.1rem 0.5rem;
+            border-radius: 4px;
+            margin-left: 0.3rem;
+        }
+
+        .award-badge {
+            display: inline-block;
+            background: var(--award-bg);
+            color: var(--award-text);
+            font-weight: 700;
+            font-size: 0.8rem;
+            padding: 0.1rem 0.55rem;
+            border-radius: 4px;
+            margin-left: 0.3rem;
+        }
+
+        /* Compact List for Honors */
+        .honor-list {
+            list-style: none;
+        }
+
+        .honor-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 0.45rem 0;
+            border-bottom: 1px dashed var(--border-color);
+            font-size: 0.95rem;
+        }
+
+        .honor-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .skill-box {
+            background: var(--bg-main);
+            padding: 0.9rem 1.1rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+
+        .skill-label {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.25rem;
+            display: block;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 2.5rem 0;
+        }
+
+        @media (max-width: 640px) {
+            header, section {
+                padding: 1.4rem;
+            }
+            .item-header, .honor-item {
+                flex-direction: column;
+            }
+            .item-date {
+                margin-top: 0.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-brand">Zhenxuan Xie</a>
+            <div class="nav-links">
+                <a href="#education">Education</a>
+                <a href="#publications">Publications</a>
+                <a href="#research">Research</a>
+                <a href="#contests">Contests</a>
+                <a href="#honors">Honors</a>
+                <a href="#service">Service</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Profile Header -->
+        <header>
+            <h1 class="profile-name">Zhenxuan Xie (谢镇轩)</h1>
+            <div class="profile-role">
+                Ph.D. Student in Computer Science and Engineering<br>
+                The Chinese University of Hong Kong (CUHK)
+            </div>
+            <div class="contact-bar">
+                <span>📧 <a href="mailto:zxxie24@cse.cuhk.edu.hk">zxxie24@cse.cuhk.edu.hk</a></span>
+                <span>📞 +852 5694 9586</span>
+                <span>🔗 <a href="https://github.com/" target="_blank">GitHub</a></span>
+                <span>🎓 <a href="https://scholar.google.com/" target="_blank">Google Scholar</a></span>
+            </div>
+            <p class="bio-text">
+                I am currently a Ph.D. student in the Department of Computer Science and Engineering at <strong>The Chinese University of Hong Kong (CUHK)</strong>, advised by <a href="https://www.cse.cuhk.edu.hk/~fyyoung/" target="_blank">Prof. Evangeline F. Y. Young</a>. Previously, I received my M.S. degree in Computer Science and Technology from <strong>Huazhong University of Science and Technology (HUST)</strong> in 2024, and my B.Eng. degree in Software Engineering from <strong>South China University of Technology (SCUT)</strong> in 2021. My research interests lie in <strong>Electronic Design Automation (EDA)</strong>, logic synthesis, technology mapping, gate sizing, and GPU-accelerated / differentiable optimization algorithms.
+            </p>
+        </header>
+
+        <!-- Education -->
+        <section id="education">
+            <h2>Education Background</h2>
+            
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">The Chinese University of Hong Kong (CUHK)</span>
+                    <span class="item-date">2024.08 – Present</span>
+                </div>
+                <div class="item-subtitle">Ph.D. in Computer Science and Engineering</div>
+                <ul class="item-details">
+                    <li>Advisor: Prof. Evangeline F. Y. Young</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Huazhong University of Science and Technology (HUST)</span>
+                    <span class="item-date">2021.09 – 2024.06</span>
+                </div>
+                <div class="item-subtitle">Master of Computer Science and Technology</div>
+                <ul class="item-details">
+                    <li>GPA: 90.13 / 100 (Top 5%)</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">South China University of Technology (SCUT)</span>
+                    <span class="item-date">2017.09 – 2021.06</span>
+                </div>
+                <div class="item-subtitle">Bachelor of Software Engineering</div>
+                <ul class="item-details">
+                    <li>GPA: 87.03 / 100 (Top 10%)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Publications -->
+        <section id="publications">
+            <h2>Publications</h2>
+            <ul class="pub-list">
+                <li class="pub-item">
+                    <span class="pub-index">[C3]</span>
+                    <span class="author-me">Zhenxuan Xie</span> and Evangeline F. Y. Young, 
+                    <span class="pub-title">“DiaMap: A Differentiable LUT Mapper for Area Optimization,”</span> 
+                    in <em>IEEE/ACM International Conference on Computer-Aided Design (ICCAD)</em>, 2026.
+                    <span class="venue-badge">ICCAD 2026</span>
+                </li>
+                <li class="pub-item">
+                    <span class="pub-index">[C2]</span>
+                    <span class="author-me">Zhenxuan Xie</span>, Lixin Liu, Tianji Liu, and Evangeline F. Y. Young, 
+                    <span class="pub-title">“UniMap: Unified Sizing and Remapping for ASIC Technology Mapping on GPU,”</span> 
+                    in <em>IEEE/ACM International Conference on Computer-Aided Design (ICCAD)</em>, 2026.
+                    <span class="venue-badge">ICCAD 2026</span>
+                </li>
+                <li class="pub-item">
+                    <span class="pub-index">[C1]</span>
+                    <span class="author-me">Zhenxuan Xie</span>, Lixin Liu, Tianji Liu, and Evangeline F. Y. Young, 
+                    <span class="pub-title">“ExactMap: Enhancing Delay Optimization in Parallel ASIC Technology Mapping,”</span> 
+                    in <em>IEEE/ACM International Conference on Computer-Aided Design (ICCAD)</em>, 2025.
+                    <span class="venue-badge">ICCAD 2025</span>
+                    <span class="award-badge">🏆 Best Paper Nominee</span>
+                </li>
+                <li class="pub-item">
+                    <span class="pub-index">[C0]</span>
+                    <span class="author-me">Zhenxuan Xie</span>, Zhipeng Lü, Zhouxing Su, Chu-Min Li, Junwen Ding, and Yuxuan Wang, 
+                    <span class="pub-title">“A Swap Relaxation-Based Local Search for the Latin Square Completion Problem,”</span> 
+                    in <em>International Joint Conference on Artificial Intelligence (IJCAI)</em>, 2024.
+                    <span class="venue-badge">IJCAI 2024</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Research Experiences -->
+        <section id="research">
+            <h2>Research Experiences</h2>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Differentiable Area-Oriented LUT Mapper</span>
+                    <span class="item-date">2026.01 – 2026.04</span>
+                </div>
+                <ul class="item-details">
+                    <li>Designed a differentiable LUT mapper for area optimization by reformulating discrete cut selection as a continuous optimization problem and designing an effective loss function.</li>
+                    <li>Achieved reductions of <strong>14% in LUT count</strong> and <strong>19% in logic depth</strong> compared with ABC's <code>if -a</code>, with a <strong>2&times; speedup</strong>.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">GPU-Accelerated ASIC Gate Sizing and Remapping</span>
+                    <span class="item-date">2025.04 – 2025.10</span>
+                </div>
+                <ul class="item-details">
+                    <li>Designed a GPU-accelerated evaluation framework that jointly supports gate sizing and remapping for mapped circuits using deterministic incremental STA.</li>
+                    <li>Extended the framework to support buffer insertion.</li>
+                    <li>Achieved average reductions of <strong>8% in delay</strong> and <strong>4% in area</strong> compared with ABC's gate-sizing flow, with a <strong>60&times; speedup</strong>.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">GPU-Accelerated ASIC Technology Mapping</span>
+                    <span class="item-date">2024.09 – 2025.04</span>
+                </div>
+                <ul class="item-details">
+                    <li>Designed a GPU-accelerated, timing-driven ASIC mapper that considers load information in successive mapping iterations.</li>
+                    <li>Achieved an average <strong>delay reduction of 36%</strong> with comparable area compared with <code>&amp;nf</code> in ABC, while delivering nearly <strong>100&times; speedup</strong>.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Contest Awards -->
+        <section id="contests">
+            <h2>Contest Awards</h2>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">2024 &amp; 2025 ICCAD Contest Problem C: Gate Sizing</span>
+                    <span class="item-date">2024.05 – 2025.09</span>
+                </div>
+                <ul class="item-details">
+                    <li>Designed an efficient local-region evaluation framework for timing and area-driven gate sizing, supported by incremental static timing analysis (STA).</li>
+                    <li>Won <strong>First Place in the 2025 ICCAD Contest</strong> and <strong>Second Place in the 2024 ICCAD Contest</strong>.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">2021 ICCAD Contest Problem B: Routing with Cell Movement Advanced</span>
+                    <span class="item-date">2021.03 – 2021.09</span>
+                </div>
+                <ul class="item-details">
+                    <li>Designed three global routing algorithms based on 2D routing, shortest-path search, and grid-weighted routing.</li>
+                    <li>Ranked first on all benchmark cases and won <strong>First Place</strong> in the competition.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Honors and Awards -->
+        <section id="honors">
+            <h2>Honors and Awards</h2>
+            <ul class="honor-list">
+                <li class="honor-item">
+                    <span><strong>Talent Development Scholarship</strong>, CUHK</span>
+                    <span class="item-date">2026.04</span>
+                </li>
+                <li class="honor-item">
+                    <span><strong>First Place in ICCAD Contest</strong>, CUHK</span>
+                    <span class="item-date">2025.11</span>
+                </li>
+                <li class="honor-item">
+                    <span><strong>Best Paper Nominee</strong>, IEEE/ACM ICCAD</span>
+                    <span class="item-date">2025.11</span>
+                </li>
+                <li class="honor-item">
+                    <span><strong>Second Place in ICCAD Contest</strong>, CUHK</span>
+                    <span class="item-date">2024.11</span>
+                </li>
+                <li class="honor-item">
+                    <span><strong>Full Postgraduate Studentship</strong>, CUHK</span>
+                    <span class="item-date">2024.08 – Present</span>
+                </li>
+                <li class="honor-item">
+                    <span><strong>Outstanding Graduate Students</strong>, HUST</span>
+                    <span class="item-date">2022.09</span>
+                </li>
+                <li class="honor-item">
+                    <span><strong>Second Prize in EDA Elite Challenge</strong>, HUST</span>
+                    <span class="item-date">2022.01</span>
+                </li>
+                <li class="honor-item">
+                    <span><strong>First Place in ICCAD Contest</strong>, HUST</span>
+                    <span class="item-date">2021.11</span>
+                </li>
+                <li class="honor-item">
+                    <span><strong>National Encouragement Scholarship</strong>, SCUT</span>
+                    <span class="item-date">2018 – 2020</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Academic Service & Skills -->
+        <section id="service">
+            <h2>Academic Service &amp; Skills</h2>
+            <div class="item" style="margin-bottom: 1.5rem;">
+                <div class="item-header">
+                    <span class="item-title">Local Arrangement Chair</span>
+                    <span class="item-date">2026</span>
+                </div>
+                <div class="item-subtitle">International Workshop on Logic &amp; Synthesis (IWLS)</div>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-box">
+                    <span class="skill-label">Programming Languages</span>
+                    CUDA, C/C++, Python, Java
+                </div>
+                <div class="skill-box">
+                    <span class="skill-label">Languages</span>
+                    English (Fluent), Mandarin (Native), Cantonese (Native)
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            &copy; 2026 Zhenxuan Xie. Hosted on GitHub Pages.
+        </footer>
+    </div>
+
+</body>
+</html>
